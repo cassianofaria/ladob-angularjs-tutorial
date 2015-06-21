@@ -1,2 +1,2 @@
 # ladob
-LadoB - Códigos dos Artigos
+Código dos arquivos publicados em http://www.ladobsoftware.com.br .
