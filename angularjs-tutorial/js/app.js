@@ -1,0 +1,1 @@
+var vendas = angular.module("vendas", []);

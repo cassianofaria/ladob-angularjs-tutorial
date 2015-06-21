@@ -1,0 +1,48 @@
+<html ng-app="vendas">
+<head>
+    <title>LadoB - Telemarketing</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+</head>
+<body ng-controller="vendasCtrl">
+    <fieldset>
+        <legend>Nova Venda</legend>
+
+        <label for="nova-venda-data">Data:</label>
+        <input id="nova-venda-data" type="text" ng-model="venda.data" placeholder="data da venda..."></input>
+
+        <label for="nova-venda-status">Status:</label>
+        <select id="nova-venda-status" ng-model="venda.status" ng-options="status for status in statusVenda"></select>
+
+        <label for="nova-venda-valor">Valor:</label>
+        <input id="nova-venda-valor" type="text" ng-model="venda.valor" placeholder="valor em reais..."></input>
+
+        <label for="nova-venda-vendedor">Vendedor:</label>
+        <select id="nova-venda-vendedor" ng-model="venda.vendedor" ng-options="vendedor for vendedor in vendedores"></select>
+
+        <button ng-click="vender(venda)" ng-disabled="!isVendaCompleta(venda)">Confirmar</button>
+    </fieldset>
+    <fieldset ng-show="vendas.length > 0">
+        <legend>Listagem de Vendas</legend>
+        <table id="tabela-vendas" >
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Valor</th>
+                    <th>Vendedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="venda in vendas">
+                    <td>{{venda.data}}</td>
+                    <td>{{venda.status}}</td>
+                    <td>{{venda.valor}}</td>
+                    <td>{{venda.vendedor}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</body>
+</html>
